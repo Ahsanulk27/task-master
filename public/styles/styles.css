@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8fdf5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
+  
+.container {
+width: 100%;
+max-width: 600px;
+background-color: #e8fdf5;
+padding: 20px 40px;
+border-radius: 10px;
+margin-top: 20px;
+text-align: center;
+}
+
+#task-form {
+display: flex;
+min-height: 50px;
+justify-content: space-between;
+margin-bottom: 20px;
+border-radius: 5px;
+}
+
+#task-form input {
+width: 90%;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+#task-form button {
+background-color: #28a745;
+color: white;
+border: none;
+margin-left: 10px;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+#task-form button span{
+font-size: 20px;
+}
+
+#task-form button:hover {
+background-color: #218838;
+}
+
+#task-list {
+margin-top: 20px;
+text-align: left;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+li {
+background-color: #f9f9f9;
+padding: 10px;
+margin: 5px 0;
+border-radius: 5px;
+display: flex;
+align-items: center;
+}
+
+li input[type="checkbox"] {
+margin-right: 10px;
+appearance: none; /* Remove default checkbox style */
+-webkit-appearance: none; /* For Safari/Chrome */
+
+width: 18px; /* Size of the circle */
+height: 18px;
+border: 1.5px solid black; /* Border color */
+border-radius: 50%; /* Makes it circular */
+outline: none;
+cursor: pointer;
+}
+
+
+li span {
+flex: 1;
+}
+
+
+#task-list ul li input[type="checkbox"]:checked {
+background-color: #28a745; /* Background when checked */
+
+}
+
+.completed {
+text-decoration: line-through;
+color: gray; /* Optional: change color to indicate completion */
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  
+.delete-button:hover {
+    color: darkred; 
+}
+  

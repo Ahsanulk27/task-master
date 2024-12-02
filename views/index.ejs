@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Master</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Task Master</h1>
+    <p class="subtitle">Organize your day, achieve your goals</p>
+    
+    <!-- Add Task Form -->
+    <form id="task-form" action="/add" method="POST">
+      <input type="text" name="task" placeholder="Add a new task..." required />
+      <button type="submit">
+        <span>&#43;</span>
+      </button>
+    </form>
+    
+    <div id="task-list">
+        <% if (tasks.length == 0) { %> 
+          <p>No tasks yet. Add one to get started!</p>
+        <% } else { %> 
+          <p id="task-count"><%= tasks.length %> total tasks</p>
+          <ul>
+            <% tasks.forEach((task, index) => { %>
+              <li id="task-item-<%= index %>">
+                <!-- Toggle Task Completion Form -->
+                <form action="/toggle/<%= index %>" method="POST" style="display: inline;">
+                  <input 
+                    class="checkbox" 
+                    type="checkbox" 
+                    id="task-<%= index %>" 
+                    <%= task.checked ? 'checked' : '' %>  
+                    onchange="this.form.submit()"  
+                  />
+                </form>
+          
+                <!-- Task Text with Strikethrough -->
+                <span id="task-text-<%= index %>" class="<%= task.checked ? 'completed' : '' %>">
+                  <%= task.task %>
+                </span>
+          
+                <!-- Delete Task Form -->
+                <form action="/delete/<%= index %>" method="POST" style="display: inline;">
+                  <button class="delete-button" type="submit" aria-label="Delete Task">
+                    🗑️
+                  </button>
+                </form>
+              </li>
+            <% }); %>
+          </ul>
+          
+        <% } %> 
+    </div>
+      
+    
+  
+  </div>
+</body>
+</html>
